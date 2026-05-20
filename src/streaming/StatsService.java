@@ -12,9 +12,7 @@ public class StatsService {
         System.out.println("Total de asistentes: " + transmision.getAsistentes().size());
         System.out.println("Total de mensajes: " + transmision.getMensajes().size());
         
-        long estudiantes = transmision.getAsistentes().stream()
-                .filter(u -> "estudiante".equals(u.getRol()))
-                .count();
+        long estudiantes = transmision.contarEstudiantes();
         System.out.println("Estudiantes conectados: " + estudiantes);
         
         System.out.println("\n=== MENSAJES ===");

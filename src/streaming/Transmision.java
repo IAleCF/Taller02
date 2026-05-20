@@ -11,6 +11,7 @@ public class Transmision {
     private List<Usuario> asistentes;
     private List<Mensaje> mensajes;
     private List<TransmisionListener> listeners;
+    
 
     public Transmision(String titulo, Usuario profesor) {
         this.titulo = titulo;
@@ -20,6 +21,12 @@ public class Transmision {
         this.mensajes = new ArrayList<>();
         this.listeners = new ArrayList<>();
     }
+    public long contarEstudiantes() {
+        return asistentes.stream()
+                .filter(u -> "estudiante".equals(u.getRol()))
+                .count();
+    }
+
 
     public void agregarListener(TransmisionListener listener) {
         listeners.add(listener);
